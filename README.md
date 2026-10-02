@@ -46,15 +46,13 @@ To reduce temporal leakage, graph neighborhoods were constructed using historica
 
 The joint model combines the outputs of the tabular LightGBM model and the GraphSAGE model:
 
-\[
-z = \alpha z_{LGBM} + (1-\alpha) z_{GNN}
-\]
+$$z = \alpha z_{LGBM} + (1-\alpha) z_{GNN}$$
 
 where:
 
-- \(z_{LGBM}\) is the LightGBM logit
-- \(z_{GNN}\) is the GraphSAGE logit
-- \(\alpha\) controls the contribution of each model
+- $z_{LGBM}$ is the LightGBM logit
+- $z_{GNN}$ is the GraphSAGE logit
+- $\alpha$ controls the contribution of each model
 
 The LightGBM model is trained first and then frozen, while the GraphSAGE model learns complementary information from transaction features and graph neighborhoods.
 
